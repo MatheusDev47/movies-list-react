@@ -1,0 +1,9 @@
+.home{
+    margin: 0 auto;
+}
+
+.films{
+    padding: 40px;
+    background: #b8b6bf;
+    min-height: 100vh;
+}
