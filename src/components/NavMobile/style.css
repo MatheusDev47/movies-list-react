@@ -30,6 +30,10 @@
     margin-top: 8rem;
 }
 
+.navbar-mobile li:first-of-type{
+    margin-top: 4rem;
+}
+
 .navbar-mobile li a{
     font-size: 2.5rem;
     font-weight: bold;
@@ -58,4 +62,14 @@
 
 .button-menu-close:hover{
     color: #000;
+}
+
+@media screen and (max-height: 720px) {
+    /* .navbar-mobile li {
+        margin-top: 1rem;
+    } */
+
+    .navbar-mobile li a {
+        font-size: 2rem;
+    }
 }
