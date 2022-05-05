@@ -1,0 +1,61 @@
+.navbar-mobile{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    height: 100%;
+    z-index: 9999;
+}
+
+@keyframes menu-mobile{
+    0%{transform: translateX(-100rem);}
+    100%{transform: translateX(1)}
+}
+
+.navbar-mobile-active{
+    display: block;
+    animation-name: menu-mobile;
+    animation-duration: 1s;
+}
+
+.navbar-mobile ul {
+    text-align: center;
+    padding: 2rem;
+    list-style: none;
+}
+
+.navbar-mobile li {
+    margin-top: 8rem;
+}
+
+.navbar-mobile li a{
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+    transition: .2s ease-in-out;
+}
+
+.navbar-mobile li a:hover{
+    color: #4b2ad1;
+}
+
+.button{
+    padding: 1rem;
+    background: #4b2ad1;
+}
+
+.button-menu-close{
+    margin: 1rem 0 0 1rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #fff;
+    transition: .2s ease-in-out;
+}
+
+.button-menu-close:hover{
+    color: #000;
+}

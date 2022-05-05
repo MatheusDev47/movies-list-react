@@ -3,6 +3,12 @@
     padding: 2rem;
 }
 
+.container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .navbar ul{
     margin-right: .5rem;
     list-style: none;
@@ -24,10 +30,29 @@
     color: #b8b6bf;
 }
 
+.button-menu-open{
+    display: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #fff;
+    transition: .2s ease-in-out;
+}
+
+.button-menu-open:hover{
+    color: #000;
+}
+
 @media screen and (max-width: 980px) {
+    .container{
+        justify-content: flex-start;
+    }
+
     .navbar ul {
-        margin-right: 0;
-        justify-content: center;
+        display: none;
+    }
+
+    .button-menu-open{
+        display: block;
     }
 }
 

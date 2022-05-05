@@ -8,6 +8,7 @@ import { ButtonPage } from '../../components/ButtonPage';
 import { NavBar } from '../../components/NavBar';
 import { InputSearch } from '../../components/InputSearch';
 import { ParagraphMessage } from '../../components/ParagraphMessage';
+import { NavMobile } from '../../components/NavMobile';
 
 export class Home extends Component {
   state = {
@@ -46,6 +47,15 @@ export class Home extends Component {
     this.setState({ searchValue: value })
   }
 
+  handleOpenMenu = () => {
+    const navMobile = document.querySelector('.navbar-mobile')
+    const className = 'navbar-mobile-active'
+
+    navMobile.classList.contains(className) 
+     ? navMobile.classList.remove(className) 
+     : navMobile.classList.add(className)
+  }
+
   render() {
     const { page, allFilms, films, filmsPerPage, searchValue } = this.state
 
@@ -59,7 +69,8 @@ export class Home extends Component {
 
       <div className="home">
         <header>
-          <NavBar />
+          <NavBar onClick={this.handleOpenMenu}/>
+          <NavMobile onClick={this.handleOpenMenu}/>
         </header>
         <section className="films">
 
