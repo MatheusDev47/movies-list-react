@@ -12,10 +12,10 @@ export const NavBar = ({ onClick }) => {
                         <a href="#">Home</a>
                     </li>
                     <li>
-                        <a href="#">Popular Films</a>
+                        <a href="#">Popular Movies</a>
                     </li>
                     <li>
-                        <a href="#">More Films</a>
+                        <a href="#">More Movies</a>
                     </li>
                 </ul>
             </div>
