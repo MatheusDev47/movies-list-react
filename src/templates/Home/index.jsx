@@ -9,6 +9,7 @@ import { NavBar } from '../../components/NavBar';
 import { InputSearch } from '../../components/InputSearch';
 import { ParagraphMessage } from '../../components/ParagraphMessage';
 import { NavMobile } from '../../components/NavMobile';
+import { CardFilms } from '../../components/CardFilms';
 
 export const Home = () => {
   const [allFilms, setAllFilms] = useState([])

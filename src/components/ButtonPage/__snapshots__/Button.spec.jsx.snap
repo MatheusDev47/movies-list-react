@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonPage /> Should match snapshot 1`] = `
+<button
+  class="btn-next"
+>
+  Load more films
+</button>
+`;
