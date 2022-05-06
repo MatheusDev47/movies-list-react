@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useEffect, useState } from 'react';
 
 import './style.css'
 
@@ -10,94 +10,85 @@ import { InputSearch } from '../../components/InputSearch';
 import { ParagraphMessage } from '../../components/ParagraphMessage';
 import { NavMobile } from '../../components/NavMobile';
 
-export class Home extends Component {
-  state = {
-    allFilms: [],
-    films: [],
-    page: 0,
-    filmsPerPage: 5,
-    searchValue: ''
-  }
+export const Home = () => {
+  const [allFilms, setAllFilms] = useState([])
+  const [films, setFilms] = useState([])
+  const [page, setPage] = useState('')
+  const [filmsPerPage, setFilmsPerPage] = useState(5)
+  const [searchValue, setSearchValue] = useState('')
 
-  async componentDidMount() {
-    await this.loadFilms()
-  }
+  useEffect(() => {
+    handleLoadFilms()
+  }, [])
 
-  loadFilms = async() => {
-    const { films, filmsPerPage } = this.state
+  const handleLoadFilms = async() => {
     const filmsJson = await loadFilms()
-    
-    this.setState({ 
-      allFilms: filmsJson.results, 
-      films: filmsJson.results.slice(films, filmsPerPage) 
-    })
+
+    setAllFilms(filmsJson.results)
+    setFilms(filmsJson.results.slice(films, filmsPerPage))
   }
 
-  loadMoreFilms = () => {
-    const { allFilms, films, page, filmsPerPage } = this.state
+  const loadMoreFilms = () => {
     const nextPage = page + filmsPerPage
     const nextFilms = allFilms.slice(nextPage, nextPage + filmsPerPage)
-
     films.push(...nextFilms)
-    this.setState({ films, page: nextPage })
+
+    setFilms(films)
+    setPage(nextPage)
   }
 
-  handleChange = e => {
+  const handleChange = e => {
     const { value } = e.target
-    this.setState({ searchValue: value })
+    setSearchValue(value)
   }
 
-  handleOpenMenu = () => {
+  const handleOpenMenu = () => {
     const navMobile = document.querySelector('.navbar-mobile')
     const className = 'navbar-mobile-active'
 
     navMobile.classList.contains(className) 
-     ? navMobile.classList.remove(className) 
-     : navMobile.classList.add(className)
+      ? navMobile.classList.remove(className) 
+      : navMobile.classList.add(className)
   }
 
-  render() {
-    const { page, allFilms, films, filmsPerPage, searchValue } = this.state
-
-    const filteredMovies = !!searchValue 
+  const filteredMovies = !!searchValue 
     ? allFilms.filter(movie => { return movie.title.toLowerCase().includes(searchValue.toLocaleLowerCase()) }) 
     : films
 
-    const noMoreFilms = page + filmsPerPage >= allFilms.length || filteredMovies !== films
+  const noMoreFilms = page + filmsPerPage >= allFilms.length
 
-    return(
+  return (
+    <div className="home">
+      <header>
+        <NavBar onClick={handleOpenMenu}/>
+        <NavMobile onClick={handleOpenMenu}/>
+      </header>
+      <section className="films">
 
-      <div className="home">
-        <header>
-          <NavBar onClick={this.handleOpenMenu}/>
-          <NavMobile onClick={this.handleOpenMenu}/>
-        </header>
-        <section className="films">
+        {!!searchValue && (
+          <ParagraphMessage message={'Search: ' + searchValue}/>
+        )}
 
-          {!!searchValue && (
-            <ParagraphMessage message={'Search: ' + searchValue}/>
-          )}
+        <InputSearch 
+        onChange={handleChange} 
+        value={searchValue} 
+        />
 
-          <InputSearch 
-          onChange={this.handleChange} 
-          value={searchValue} 
-          />
+        {filteredMovies.length > 0 && (
+          <Films films={filteredMovies} />
+        )}
 
-          {filteredMovies.length > 0 && (
-            <Films films={filteredMovies} />
-          )}
+        {filteredMovies.length === 0  &&(
+          <ParagraphMessage message='the movie doesn´t exist' />
+        )}
 
-          {filteredMovies.length === 0  &&(
-            <ParagraphMessage message='the movie doesn´t exist' />
-          )}
-
+        {!searchValue && (
           <ButtonPage 
-          onClick={this.loadMoreFilms}
+          onClick={loadMoreFilms}
           disabled={noMoreFilms}
           />
-        </section>
-      </div>
-
-    )
-  }
+        )}
+      </section>
+    </div>
+  )
 }
