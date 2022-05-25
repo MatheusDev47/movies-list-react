@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavBar /> Should match snapshot 1`] = `
+<nav
+  class="navbar"
+>
+  <div
+    class="container"
+  >
+    <button
+      class="button-menu-open"
+    >
+      =
+    </button>
+    <ul>
+      <li>
+        <a
+          href="#"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          Popular Movies
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          More Movies
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;

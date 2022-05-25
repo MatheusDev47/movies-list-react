@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Films /> Should match snapshot 1`] = `
+<div
+  class="content"
+>
+  <div
+    class="card"
+  >
+    <img
+      alt="title 01"
+      src="https://image.tmdb.org/t/p/w500/img/img01.png"
+    />
+    <div
+      class="film-content"
+    >
+      <h2>
+        title 01
+      </h2>
+      <p>
+        overview 01
+      </p>
+    </div>
+  </div>
+  <div
+    class="card"
+  >
+    <img
+      alt="title 02"
+      src="https://image.tmdb.org/t/p/w500/img/img02.png"
+    />
+    <div
+      class="film-content"
+    >
+      <h2>
+        title 02
+      </h2>
+      <p>
+        overview 02
+      </p>
+    </div>
+  </div>
+  <div
+    class="card"
+  >
+    <img
+      alt="title 03"
+      src="https://image.tmdb.org/t/p/w500/img/img03.png"
+    />
+    <div
+      class="film-content"
+    >
+      <h2>
+        title 03
+      </h2>
+      <p>
+        overview 03
+      </p>
+    </div>
+  </div>
+  <div
+    class="card"
+  >
+    <img
+      alt="title 04"
+      src="https://image.tmdb.org/t/p/w500/img/img04.png"
+    />
+    <div
+      class="film-content"
+    >
+      <h2>
+        title 04
+      </h2>
+      <p>
+        overview 04
+      </p>
+    </div>
+  </div>
+</div>
+`;

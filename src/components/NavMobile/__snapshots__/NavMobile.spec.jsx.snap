@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavMobile /> Should match snapshot 1`] = `
+<nav
+  class="navbar-mobile"
+>
+  <div
+    class="button"
+  >
+    <button
+      class="button-menu-close"
+    >
+      X
+    </button>
+  </div>
+  <ul>
+    <li>
+      <a
+        href="#"
+      >
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+      >
+        Popular Movies
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+      >
+        More Movies
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

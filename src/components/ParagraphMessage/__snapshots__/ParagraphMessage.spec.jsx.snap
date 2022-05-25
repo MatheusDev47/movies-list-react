@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ParagraphMessage /> Should match snapshot 1`] = `
+<p
+  class="p"
+>
+  Message test
+</p>
+`;
